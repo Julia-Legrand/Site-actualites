@@ -42,32 +42,6 @@ class ContactsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_contacts_show', methods: ['GET'])]
-    public function show(Contacts $contact): Response
-    {
-        return $this->render('contacts/show.html.twig', [
-            'contact' => $contact,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_contacts_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Contacts $contact, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(ContactsType::class, $contact);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_contacts_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('contacts/edit.html.twig', [
-            'contact' => $contact,
-            'form' => $form,
-        ]);
-    }
-
     #[Route('/{id}', name: 'app_contacts_delete', methods: ['POST'])]
     public function delete(Request $request, Contacts $contact, EntityManagerInterface $entityManager): Response
     {

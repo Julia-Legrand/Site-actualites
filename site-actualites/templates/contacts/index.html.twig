@@ -1,37 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contacts index{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
-    <h1>Contacts index</h1>
+<main class="mainIndex">
+    <h2>Contact</h2>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>EmailContact</th>
-                <th>MessageContact</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
         {% for contact in contacts %}
             <tr>
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.emailContact }}</td>
-                <td>{{ contact.messageContact }}</td>
+                <td>{{ contact.contactName }}</td>
+                <td>{{ contact.contactEmail }}</td>
+                <td>{{ contact.contactMessage }}</td>
                 <td>
-                    <a href="{{ path('app_contacts_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('app_contacts_edit', {'id': contact.id}) }}">edit</a>
+                    {{ include('contacts/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">Donnée vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_contacts_new') }}">Create new</a>
+    <div class="buttons">
+        <a href="{{ path('admin') }}" class="btn">Retour</a>
+    </div>
+</main>
 {% endblock %}
