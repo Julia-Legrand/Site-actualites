@@ -3,5 +3,98 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
+    
+    <!------HEADER------>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="navbar-brand">
+                <img src="{{ asset('images/logo.png') }}" alt="logo" width="250px" height="auto">
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#section-une">À LA UNE</a>
+                <a class="nav-item nav-link" href="#main-section">ARTICLES</a>
+                <a class="nav-item nav-link" href="#contact">CONTACT</a>
+            </div>
+        </nav>
+    </header>
 
+    <!------A LA UNE------>
+    <section id="section-une">
+
+        <!--Insérer ici la méthode permettant d'afficher des articles en une de manière aléatoire-->
+
+    </section>
+
+    <!------ARTICLES------>
+    <section id="main-section">
+        {% for category in categories %}
+        <div class="title">
+            <h1>{{ category.nameCategory }}</h1>
+        </div>
+        <div class="articles">
+            {% for article in articles %}
+                {% if article.category == category %}
+                <div class="article">
+                    <div class="picture">
+                        <img src="{{ asset('uploads/images/' ~ article.picture) }}">
+                    </div>
+                    <div class="description">
+                        <small>{{ article.category.nameCategory }}</small>
+                        <h2>{{ article.title }}</h2>
+                        <p>{{ article.text }}</p>
+                        <small>Par {{ article.user.firstName ~ ' ' ~ article.user.lastName }}</small>
+                        <small>Le {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</small>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </section>
+
+    <!------CONTACT------>
+    <section id="contact-section">
+        <div class="title">
+            <h1>Contact</h1>
+        </div>
+        {{ include('contacts/_form.html.twig') }}
+    </section>
+
+    <!------FOOTER------>
+    <footer>
+        <div class="footerBloc">
+            <div class="bloc-left">
+                <img src="{{ asset('images/logo2.png') }}" alt="logo" width="150px" height="auto">
+                <div class="socials">
+                    <a href="" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="bloc-right">
+                <div class="list">
+                    <ul>
+                        <li><a href="#section-une">À LA UNE</a></li>
+                        <li><a href="#main-section">ARTICLES</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="https://www.condenast.com">CONDÉ NAST</a></li>
+                        <li><a href="https://www.vogue.fr">VOGUE</a></li>
+                        <li><a href="https://www.vanityfair.fr">VANITY FAIR</a></li>
+                        <li><a href="https://www.gqmagazine.fr">GQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footerBloc">
+            <div class="legals">
+                <small><a href="/politique-de-confidentialite" target="_blank">Politique de confidentialité</a> | <a href="/mentions-legales" target="_blank">Mentions légales</a></small>
+            </div>
+            <div class="brand">
+                <small>2023 | Les publications de Condé Nast</small>
+            </div>
+        </div>
+    </footer>
 {% endblock %}

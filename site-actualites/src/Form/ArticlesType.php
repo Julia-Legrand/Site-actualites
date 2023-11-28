@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class ArticlesType extends AbstractType
 {
@@ -31,7 +32,9 @@ class ArticlesType extends AbstractType
             ])
             ->add('title')
             ->add('text')
-            ->add('created_at')
+            ->add('created_at', DateTimeType::class, [
+                'widget' => 'single_text',
+            ])
             ->add('category', EntityType::class, [
                 'class' => Categories::class,
                 'choice_label' => 'nameCategory',

@@ -9,9 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Catégorie</th>
                 <th>Illustration</th>
                 <th>Title</th>
                 <th>Text</th>
+                <th>Author</th>
                 <th>Created_at</th>
                 <th>actions</th>
             </tr>
@@ -20,9 +22,11 @@
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>
-                <td><img src="{{ asset('uploads/images/' ~ article.image) }}" width="100"></td>
+                <td>{{ article.category.nameCategory }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ article.picture) }}" width="100"></td>
                 <td>{{ article.title }}</td>
                 <td>{{ article.text }}</td>
+                <td>{{ article.user.firstName ~ ' ' ~ article.user.lastName }}</td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_articles_show', {'id': article.id}) }}">show</a>

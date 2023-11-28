@@ -2,6 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Contacts;
+use App\Form\ContactsType;
+use App\Repository\ArticlesRepository;
+use App\Repository\ContactsRepository;
+use App\Repository\CategoriesRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -9,20 +16,37 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'home')]
-    public function index(): Response
+    #[Route('/', name: 'home', methods: ['GET', 'POST'])]
+    public function index(Request $request, EntityManagerInterface $entityManager, ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
+        $contact = new Contacts();
+        $form = $this->createForm(ContactsType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'contact' => $contact,
+            'form' => $form,
+            'articles' => $articlesRepository->findAll(),
+            'categories' => $categoriesRepository->findAll(),
+
         ]);
     }
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
-    public function admin(): Response
+    public function admin(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository, ContactsRepository $contactsRepository): Response
     {
         return $this->render('main/admin.html.twig', [
-            'controller_name' => 'MainController',
+            'articles' => $articlesRepository->findAll(),
+            'categories' => $categoriesRepository->findAll(),
+            'contacts' => $contactsRepository->findAll(),
         ]);
     }
 

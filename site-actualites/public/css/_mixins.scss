@@ -1,0 +1,15 @@
+@mixin title1 {
+    font-family: 'Over the Rainbow', cursive;
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+@mixin title2 {
+    font-family: 'Over the Rainbow', cursive;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+@mixin paragraph {
+    font-family: 'Montserrat', sans-serif;
+}

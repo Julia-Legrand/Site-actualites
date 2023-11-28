@@ -42,7 +42,7 @@ class ArticlesController extends AbstractController
                     $newFilename
                 );
         
-                $project->setProjectPicture($newFilename);
+                $article->setPicture($newFilename);
             }
             $entityManager->persist($article);
             $entityManager->flush();
