@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Articles{% endblock %}
+{% block title %}Modifier l'article{% endblock %}
 
 {% block body %}
-    <h1>Edit Articles</h1>
-
-    {{ include('articles/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_articles_index') }}">back to list</a>
-
-    {{ include('articles/_delete_form.html.twig') }}
+	{% include "_partials/_headerLogin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height:100vh;">
+			{% include "_partials/_sidebarRedac.html.twig" %}
+			<div class="col-md-10" id="dashboard" style="padding:20px;">
+				{{ include('articles/_form.html.twig', {'button_label': 'Valider'}) }}
+			</div>
+		</section>
+	</main>
 {% endblock %}

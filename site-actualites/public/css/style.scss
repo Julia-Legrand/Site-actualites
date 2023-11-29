@@ -36,6 +36,40 @@ select {
     opacity: 1;
 }
 
+.button2 {
+    color: white;
+    background-color: #343A41;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.9;
+}
+
+.button2:hover {
+    text-decoration: none;
+    box-shadow: black 1px 0 5px;
+    opacity: 1;
+}
+
+.custom-form {
+    background-color: #EDEAEB;
+    opacity: 0.7;
+    border: 1px solid #EDEAEB;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: block;
+    width: 800px;
+    padding: 10px;
+}
+
+.icon {
+    background-color: white;
+    border: none;
+}
+
 /*************** INDEX ***************/
 
 header {
@@ -173,17 +207,6 @@ header {
         box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
     }
 
-    .custom-form {
-        background-color: #EDEAEB;
-        opacity: 0.7;
-        border: 1px solid #EDEAEB;
-        border-radius: 5px;
-        margin-bottom: 40px;
-        display: block;
-        width: 800px;
-        padding: 10px;
-    }
-
     #contacts_agreeTerms {
         margin-left: 5px;
     }
@@ -265,15 +288,30 @@ footer {
 
 /*************** ADMIN PAGES ***************/
 /***** LOGIN & REGISTER *****/
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    h2 {
+        margin: 20px 0;
+        font-size: 30px;
+    }
 
-
-
+    label {
+        margin-top: 20px;
+    }
+}
 
 /***** ADMIN *****/
 .mainAdmin {
     i {
         margin-right: 10px;
+    }
+
+    a {
+        color: black;
     }
 
     #dashboard {
@@ -289,7 +327,7 @@ footer {
     table {
         background-color: white;
         box-shadow: black 1px 0 5px;
-        font-family: 'Montserrat',sans-serif;
+        font-family: 'Montserrat', sans-serif;
 
         th {
             font-size: 15px;
@@ -301,55 +339,53 @@ footer {
             text-align: center;
         }
     }
+
+    #user_roles {
+        input {
+            margin: 0 5px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+    }
 }
 
-.mainIndex {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-
-    .table {
-        width: 700px;
-
-        th,
-        td {
-            text-align: center;
-        }
+/***** REDACTOR'S PAGE *****/
+.redacAdmin {
+    i {
+        margin-right: 10px;
+        color: black;
     }
 
     a {
         color: black;
-        margin-left: 5px;
     }
 
-    .btn {
-        background-color: #0D121C;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: none;
-        margin: 10px;
+    #dashboard {
+        background-color: #d6d6d6;
+        width: 100%;
+
+    }
+
+    h2 {
+        margin: 20px 0;
+        font-size: 30px;
+    }
+
+    table {
+        background-color: white;
+        box-shadow: black 1px 0 5px;
         font-family: 'Montserrat', sans-serif;
-    }
 
-    .btn:hover {
-        color: white;
-        text-decoration: none;
-        box-shadow: #0D121C 1px 0 5px;
-    }
+        th {
+            font-size: 15px;
+            text-align: center;
+        }
 
-    .buttons {
-        .custom-form {
-            background-color: #EDEAEB;
-            opacity: 0.7;
-            border: 1px solid #EDEAEB;
-            border-radius: 5px;
-            margin-bottom: 40px;
-            display: block;
-            width: 500px;
-            padding: 10px;
+        td {
+            font-size: 12px;
+            text-align: center;
         }
     }
 }

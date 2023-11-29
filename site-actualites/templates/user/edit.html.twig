@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Modifier utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
-
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_user_index') }}">back to list</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+	{% include "_partials/_headerAdmin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height:100vh;">
+			{% include "_partials/_sidebar.html.twig" %}
+			<div class="col-md-10" id="dashboard" style="padding:20px;">
+				{{ include('user/_form.html.twig', {'button_label': 'Valider'}) }}
+            </div>
+		</section>
+	</main>
 {% endblock %}

@@ -61,7 +61,7 @@ class MainController extends AbstractController
     }
 
     #[IsGranted('ROLE_EDITOR')]
-    #[Route('/espace-redacteurs', name: 'edition')]
+    #[Route('/espace-redacteurs', name: 'redaction')]
     public function redaction(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
         return $this->render('main/espace-redacteurs.html.twig', [

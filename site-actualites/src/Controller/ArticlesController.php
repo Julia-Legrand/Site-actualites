@@ -56,14 +56,6 @@ class ArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_articles_show', methods: ['GET'])]
-    public function show(Articles $article): Response
-    {
-        return $this->render('articles/show.html.twig', [
-            'article' => $article,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_articles_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Articles $article, EntityManagerInterface $entityManager): Response
     {

@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticlesType extends AbstractType
 {
@@ -21,6 +22,7 @@ class ArticlesType extends AbstractType
         $builder
             ->add('picture', FileType::class, [
                 'label' => 'Illustration',
+                'attr' => ['class' => 'custom-form'],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -35,19 +37,28 @@ class ArticlesType extends AbstractType
                 'label' => 'Titre',
                 'attr' => ['class' => 'custom-form'],
             ])
-            ->add('text')
+            ->add('text', TextareaType::class, [
+                'label' => 'Texte',
+                'attr' => ['class' => 'custom-form'],
+            ])
             ->add('created_at', DateTimeType::class, [
                 'widget' => 'single_text',
+                'label' => 'Créé le',
+                'attr' => ['class' => 'custom-form'],
             ])
             ->add('category', EntityType::class, [
                 'class' => Categories::class,
+                'label' => 'Catégorie',
                 'choice_label' => 'nameCategory',
+                'attr' => ['class' => 'custom-form'],
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => function (User $user) {
                     return $user->getFirstName() . ' ' . $user->getLastName();
                 },
+                'attr' => ['class' => 'custom-form'],
+                'label' => 'Auteur',
             ])
         ;
     }
