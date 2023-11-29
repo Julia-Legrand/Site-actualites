@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -44,7 +45,7 @@ class MainController extends AbstractController
             'form' => $form,
             'selectedArticle' => $selectedArticle,
             'categories' => $categoriesRepository->findAll(),
-            'articles' => $allArticles, 
+            'articles' => $allArticles,
         ]);
     }
 
@@ -62,10 +63,13 @@ class MainController extends AbstractController
 
     #[IsGranted('ROLE_EDITOR')]
     #[Route('/espace-redacteurs', name: 'redaction')]
-    public function redaction(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
+    public function redaction(UserInterface $user, ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
+        // Getting articles only from the connected user
+        $userArticles = $articlesRepository->findBy(['user' => $user]);
+
         return $this->render('main/espace-redacteurs.html.twig', [
-            'articles' => $articlesRepository->findAll(),
+            'articles' => $userArticles,
             'categories' => $categoriesRepository->findAll(),
         ]);
     }
