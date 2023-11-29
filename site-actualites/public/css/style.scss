@@ -364,8 +364,8 @@ footer {
 
     #dashboard {
         background-color: #d6d6d6;
-        width: 100%;
-
+        
+        padding: 10px 40px;
     }
 
     h2 {
@@ -373,19 +373,33 @@ footer {
         font-size: 30px;
     }
 
-    table {
-        background-color: white;
-        box-shadow: black 1px 0 5px;
-        font-family: 'Montserrat', sans-serif;
+    .card-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;;
 
-        th {
-            font-size: 15px;
-            text-align: center;
+        .card {
+            flex: 0 1 calc(33.33% - 20px); /* 33.33% - marges pour obtenir trois cartes par ligne */
+            margin: 10px;
+            box-shadow: black 1px 0 5px;
         }
 
-        td {
-            font-size: 12px;
-            text-align: center;
+        .card-body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body img {
+            width: 300px;
+            height: 220px;
+            margin-bottom: 5px;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
         }
     }
 }

@@ -312,22 +312,34 @@ footer .footerBloc i {
 }
 .redacAdmin #dashboard {
   background-color: #d6d6d6;
-  width: 100%;
+  padding: 10px 40px;
 }
 .redacAdmin h2 {
   margin: 20px 0;
   font-size: 30px;
 }
-.redacAdmin table {
-  background-color: white;
+.redacAdmin .card-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.redacAdmin .card-group .card {
+  flex: 0 1 calc(33.33% - 20px); /* 33.33% - marges pour obtenir trois cartes par ligne */
+  margin: 10px;
   box-shadow: black 1px 0 5px;
-  font-family: "Montserrat", sans-serif;
 }
-.redacAdmin table th {
-  font-size: 15px;
-  text-align: center;
+.redacAdmin .card-group .card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.redacAdmin table td {
-  font-size: 12px;
-  text-align: center;
+.redacAdmin .card-group .card-body img {
+  width: 300px;
+  height: 220px;
+  margin-bottom: 5px;
+}
+.redacAdmin .card-group .actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */
