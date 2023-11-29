@@ -117,11 +117,12 @@ header .navbar a {
   margin: 40px;
 }
 #une-section img {
-  width: 100%;
+  width: 1000px;
   box-shadow: grey 1px 0 8px;
   margin-bottom: 20px;
 }
 #une-section .description-une {
+  width: 1000px;
   display: flex;
   flex-direction: column;
 }
