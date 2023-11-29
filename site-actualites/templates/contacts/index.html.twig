@@ -9,7 +9,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Nom</th>
                 <th>Email</th>
                 <th>Message</th>
                 <th>Supprimer</th>
@@ -18,9 +17,8 @@
         <tbody>
         {% for contact in contacts %}
             <tr>
-                <td>{{ contact.contactName }}</td>
-                <td>{{ contact.contactEmail }}</td>
-                <td>{{ contact.contactMessage }}</td>
+                <td>{{ contact.emailContact }}</td>
+                <td>{{ contact.messageContact }}</td>
                 <td>
                     {{ include('contacts/_delete_form.html.twig') }}
                 </td>

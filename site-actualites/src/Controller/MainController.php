@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contacts;
 use App\Form\ContactsType;
+use App\Repository\UserRepository;
 use App\Repository\ArticlesRepository;
 use App\Repository\ContactsRepository;
 use App\Repository\CategoriesRepository;
@@ -19,27 +20,27 @@ class MainController extends AbstractController
     #[Route('/', name: 'home', methods: ['GET', 'POST'])]
     public function index(Request $request, EntityManagerInterface $entityManager, ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
-        $contact = new Contacts();
-        $form = $this->createForm(ContactsType::class, $contact);
+        $contacts = new Contacts();
+        $form = $this->createForm(ContactsType::class, $contacts);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($contact);
+            $entityManager->persist($contacts);
             $entityManager->flush();
 
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
-        // Récupération de tous les articles depuis la base de données
+        // Getting all articles from database
         $allArticles = $articlesRepository->findAll();
 
-        // Mélange aléatoire des articles à la une
+        // Random shuffle of main article
         $featuredArticles = $allArticles;
         shuffle($featuredArticles);
         $selectedArticle = reset($featuredArticles);
 
         return $this->renderForm('main/index.html.twig', [
-            'contact' => $contact,
+            'contacts' => $contacts,
             'form' => $form,
             'selectedArticle' => $selectedArticle,
             'categories' => $categoriesRepository->findAll(),
@@ -49,9 +50,10 @@ class MainController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
-    public function admin(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository, ContactsRepository $contactsRepository): Response
+    public function admin(UserRepository $userRepository, ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository, ContactsRepository $contactsRepository): Response
     {
         return $this->render('main/admin.html.twig', [
+            'users' => $userRepository->findAll(),
             'articles' => $articlesRepository->findAll(),
             'categories' => $categoriesRepository->findAll(),
             'contacts' => $contactsRepository->findAll(),
@@ -59,11 +61,12 @@ class MainController extends AbstractController
     }
 
     #[IsGranted('ROLE_EDITOR')]
-    #[Route('/admin-rédaction', name: 'redaction')]
-    public function adminRedaction(): Response
+    #[Route('/espace-redacteurs', name: 'edition')]
+    public function redaction(ArticlesRepository $articlesRepository, CategoriesRepository $categoriesRepository): Response
     {
-        return $this->render('main/admin-rédaction.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('main/espace-redacteurs.html.twig', [
+            'articles' => $articlesRepository->findAll(),
+            'categories' => $categoriesRepository->findAll(),
         ]);
     }
 

@@ -92,7 +92,7 @@ header {
     img {
         width: 100%;
         box-shadow: grey 1px 0 8px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .description-une {
@@ -101,6 +101,7 @@ header {
 
         h2 {
             font-size: 40px;
+            margin: 10px 0;
         }
 
         p {
@@ -229,6 +230,126 @@ footer {
 
         i {
             margin: 5px;
+        }
+    }
+}
+
+/*************** LEGAL PAGES ***************/
+.mainLegals {
+
+    h1 {
+        font-size: 60px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .blocsLegals {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        padding: 20px;
+
+        .blocLeft,
+        .blocRight {
+            width: 50%;
+            padding: 30px;
+            text-align: justify;
+        }
+
+        h2 {
+            font-size: 30px;
+            padding-top: 20px;
+        }
+    }
+}
+
+/*************** ADMIN PAGES ***************/
+/***** LOGIN & REGISTER *****/
+
+
+
+
+
+/***** ADMIN *****/
+.mainAdmin {
+    i {
+        margin-right: 10px;
+    }
+
+    #dashboard {
+        background-color: #d6d6d6;
+        width: 100%;
+    }
+
+    h2 {
+        margin: 20px 0;
+        font-size: 30px;
+    }
+
+    table {
+        background-color: white;
+        box-shadow: black 1px 0 5px;
+        font-family: 'Montserrat',sans-serif;
+
+        th {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        td {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+}
+
+.mainIndex {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+
+    .table {
+        width: 700px;
+
+        th,
+        td {
+            text-align: center;
+        }
+    }
+
+    a {
+        color: black;
+        margin-left: 5px;
+    }
+
+    .btn {
+        background-color: #0D121C;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn:hover {
+        color: white;
+        text-decoration: none;
+        box-shadow: #0D121C 1px 0 5px;
+    }
+
+    .buttons {
+        .custom-form {
+            background-color: #EDEAEB;
+            opacity: 0.7;
+            border: 1px solid #EDEAEB;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            display: block;
+            width: 500px;
+            padding: 10px;
         }
     }
 }
