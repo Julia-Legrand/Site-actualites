@@ -30,12 +30,20 @@ class MainController extends AbstractController
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('main/index.html.twig', [
+        // Récupération de tous les articles depuis la base de données
+        $allArticles = $articlesRepository->findAll();
+
+        // Mélange aléatoire des articles à la une
+        $featuredArticles = $allArticles;
+        shuffle($featuredArticles);
+        $selectedArticle = reset($featuredArticles);
+
+        return $this->renderForm('main/index.html.twig', [
             'contact' => $contact,
             'form' => $form,
-            'articles' => $articlesRepository->findAll(),
+            'selectedArticle' => $selectedArticle,
             'categories' => $categoriesRepository->findAll(),
-
+            'articles' => $allArticles, 
         ]);
     }
 

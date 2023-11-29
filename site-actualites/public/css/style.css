@@ -21,7 +21,7 @@ select {
 
 .button {
   color: white;
-  background-color: grey;
+  background-color: black;
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
@@ -65,6 +65,43 @@ header .navbar a {
   margin: 0px 20px;
 }
 
+#une-section {
+  margin: 20px;
+}
+#une-section .title {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+#une-section .article-une {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+#une-section img {
+  width: 100%;
+  box-shadow: grey 1px 0 8px;
+  margin-bottom: 10px;
+}
+#une-section .description-une {
+  display: flex;
+  flex-direction: column;
+}
+#une-section .description-une h2 {
+  font-size: 40px;
+}
+#une-section .description-une p {
+  text-align: justify;
+  font-size: 20px;
+}
+#une-section .description-une small {
+  font-size: 18px;
+}
+
 #main-section {
   margin: 20px;
 }
@@ -81,16 +118,16 @@ header .navbar a {
   margin-bottom: 30px;
 }
 #main-section .articles .article {
-  width: 550px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   margin: 20px 0;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-  /* Ajoute une transition pour un effet de fondu */
+  transition: opacity 0.5s ease-in-out;
 }
 #main-section .articles img {
-  width: 550px;
+  width: 450px;
+  height: 330px;
   box-shadow: grey 1px 0 8px;
   margin-bottom: 10px;
 }
@@ -105,15 +142,28 @@ header .navbar a {
   opacity: 1;
 }
 
-#contact {
+#contact-section {
   margin: 20px;
 }
-#contact .title {
+#contact-section .title {
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   padding: 10px;
   margin: 20px 0;
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+#contact-section .custom-form {
+  background-color: #EDEAEB;
+  opacity: 0.7;
+  border: 1px solid #EDEAEB;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  display: block;
+  width: 800px;
+  padding: 10px;
+}
+#contact-section #contacts_agreeTerms {
+  margin-left: 5px;
 }
 
 footer {

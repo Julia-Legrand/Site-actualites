@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const options = {
         root: null, // Utilise la fenêtre comme la zone d'observation
         rootMargin: '0px', // Pas de marges supplémentaires
-        threshold: 0.5 // Déclenche l'observation lorsque 50% de l'élément est visible
+        threshold: 0.2 // Déclenche l'observation lorsque 50% de l'élément est visible
     };
 
     // Fonction de callback pour l'Intersection Observer
