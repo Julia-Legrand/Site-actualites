@@ -4,10 +4,10 @@
 
 {% block body %}
 
-<!------HEADER------>
+<!---HEADER-->
 {% include "_partials/_headerIndex.html.twig" %}
 
-<!------A LA UNE------>
+<!--A LA UNE-->
 <section id="une-section">
     <div class="title">
         <h1>À la une</h1>
@@ -28,7 +28,7 @@
     </div>
 </section>
 
-<!------ARTICLES------>
+<!--ARTICLES-->
 <section id="main-section">
     {% for category in categories %}
     <div class="title">
@@ -55,7 +55,7 @@
     {% endfor %}
 </section>
 
-<!------CONTACT------>
+<!--CONTACT-->
 <section id="contact-section">
     <div class="title">
         <h1>Contact</h1>
@@ -63,7 +63,7 @@
     {{ include('contacts/_form.html.twig') }}
 </section>
 
-<!------FOOTER------>
+<!--FOOTER-->
 {% include "_partials/_footer.html.twig" %}
 
 {% endblock %}

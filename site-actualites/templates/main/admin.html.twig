@@ -99,7 +99,7 @@
 									{% for article in articles %}
 										<tr>
 											<td>{{ article.category.nameCategory }}</td>
-											<td><img src="{{ asset('uploads/images/' ~ article.picture) }}" width="100"></td>
+											<td><img src="{{ asset('uploads/images/' ~ article.picture) }}" alt="illustration article"></td>
 											<td>{{ article.title }}</td>
 											<td>{{ article.text }}</td>
 											<td>{{ article.user.firstName ~ ' ' ~ article.user.lastName }}</td>

@@ -192,11 +192,15 @@ header .navbar .navbar-brand {
   border-bottom: 1px solid lightgrey;
   margin: 0;
 }
+header .navbar .navbar-brand img {
+  width: 250px;
+  height: auto;
+}
 header .navbar .initial-brand {
   background-color: white;
   width: 100%;
 }
-header .navbar .navbar-nav {
+header .navbar .navbar-nav-index {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -206,8 +210,34 @@ header .navbar .navbar-nav {
   padding: 10px;
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
-header .navbar a {
+header .navbar .navbar-nav-index a {
   margin: 0px 20px;
+  color: #434344;
+}
+header .navbar .navbar-nav-index a:after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+header .navbar .navbar-nav-index a:hover:after {
+  width: 100%;
+  background: #cdcdcf;
+}
+header .navbar .navbar-nav-admin {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+header .navbar ul {
+  list-style: none;
+}
+header .navbar i {
+  color: #A1A3A6;
 }
 
 #une-section {
@@ -325,6 +355,8 @@ footer .footerBloc .bloc-left {
 }
 footer .footerBloc img {
   margin-bottom: 10px;
+  width: 150px;
+  height: auto;
 }
 footer .footerBloc .bloc-right {
   display: flex;
@@ -379,7 +411,8 @@ footer .footerBloc i {
   margin: 20px 0;
   font-size: 30px;
 }
-.loginForm label {
+
+label {
   margin-top: 20px;
 }
 
@@ -410,6 +443,9 @@ footer .footerBloc i {
 .mainAdmin .table-responsive td {
   font-size: 12px;
   text-align: center;
+}
+.mainAdmin .table-responsive img {
+  width: 100px;
 }
 .mainAdmin #user_roles input {
   margin: 0 5px;

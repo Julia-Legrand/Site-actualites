@@ -88,6 +88,11 @@ header {
             padding-bottom: 20px;
             border-bottom: 1px solid lightgrey;
             margin: 0;
+
+            img {
+                width: 250px;
+                height: auto;
+            }
         }
 
         .initial-brand {
@@ -95,7 +100,7 @@ header {
             width: 100%;
         }
 
-        .navbar-nav {
+        .navbar-nav-index {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -104,10 +109,41 @@ header {
             border-bottom: 1px solid lightgrey;
             padding: 10px;
             box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+
+            a {
+                margin: 0px 20px;
+                color: #434344;
+            }
+
+            a:after {
+                content: '';
+                display: block;
+                margin: auto;
+                height: 1px;
+                width: 0;
+                background: transparent;
+                transition: width .5s ease, background-color .5s ease;
+            }
+
+            a:hover:after {
+                width: 100%;
+                background: #cdcdcf;
+            }
         }
 
-        a {
-            margin: 0px 20px;
+        .navbar-nav-admin {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        i {
+            color: #A1A3A6;
         }
     }
 }
@@ -134,10 +170,11 @@ header {
     .picture-une {
         width: 80%;
         margin-bottom: 20px;
-            img {
-                width: 100%;
-                box-shadow: grey 1px 0 8px;
-            }
+
+        img {
+            width: 100%;
+            box-shadow: grey 1px 0 8px;
+        }
     }
 
     .description-une {
@@ -244,6 +281,8 @@ footer {
 
         img {
             margin-bottom: 10px;
+            width: 150px;
+            height: auto;
         }
 
         .bloc-right {
@@ -311,10 +350,10 @@ footer {
         margin: 20px 0;
         font-size: 30px;
     }
+}
 
-    label {
-        margin-top: 20px;
-    }
+label {
+    margin-top: 20px;
 }
 
 /***** ADMIN *****/
@@ -350,6 +389,10 @@ footer {
         td {
             font-size: 12px;
             text-align: center;
+        }
+
+        img {
+            width: 100px;
         }
     }
 
