@@ -25,6 +25,29 @@
   footer .footerBloc .list {
     margin: 0 10px !important;
   }
+  /***** LOGIN & REGISTER *****/
+  .loginForm .custom-form {
+    width: 500px !important;
+  }
+  /***** LEGAL PAGES *****/
+  .mainLegals h1 {
+    font-size: 40px !important;
+    padding: 10px !important;
+  }
+  .mainLegals h2 {
+    text-align: center;
+  }
+  .mainLegals .blocsLegals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px !important;
+  }
+  .mainLegals .blocsLegals .blocLeft,
+  .mainLegals .blocsLegals .blocRight {
+    width: 100% !important;
+  }
 }
 @media (max-width: 767.98px) {
   /*************** SIDEBARS  ***************/
@@ -70,6 +93,10 @@
   }
   footer .footerBloc {
     margin: 20px 5px 20px 0 !important;
+  }
+  /***** LOGIN & REGISTER *****/
+  .loginForm .custom-form {
+    width: 290px !important;
   }
 }
 @media all and (max-width: 400px) {
@@ -408,8 +435,9 @@ footer .footerBloc i {
   align-items: center;
 }
 .loginForm h2 {
-  margin: 20px 0;
+  margin: 20px;
   font-size: 30px;
+  text-align: center;
 }
 
 label {
