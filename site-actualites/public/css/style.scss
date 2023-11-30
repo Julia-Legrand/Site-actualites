@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'responsive';
 
 /*************** GLOBAL ***************/
 
@@ -89,9 +90,16 @@ header {
             margin: 0;
         }
 
+        .initial-brand {
+            background-color: white;
+            width: 100%;
+        }
+
         .navbar-nav {
             display: flex;
+            flex-direction: row;
             justify-content: center;
+            align-items: center;
             width: 100%;
             border-bottom: 1px solid lightgrey;
             padding: 10px;
@@ -123,16 +131,19 @@ header {
         margin: 40px;
     }
 
-    img {
-        width: 1000px;
-        box-shadow: grey 1px 0 8px;
+    .picture-une {
+        width: 80%;
         margin-bottom: 20px;
+            img {
+                width: 100%;
+                box-shadow: grey 1px 0 8px;
+            }
     }
 
     .description-une {
-        width: 1000px;
         display: flex;
         flex-direction: column;
+        width: 80%;
 
         h2 {
             font-size: 40px;
@@ -163,11 +174,12 @@ header {
 
     .articles {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         margin-bottom: 30px;
 
         .article {
-            width: 450px;
+            width: 500px;
             display: flex;
             flex-direction: column;
             margin: 20px 0;
@@ -176,8 +188,8 @@ header {
         }
 
         img {
-            width: 450px;
-            height: 330px;
+            width: 500px;
+            height: 350px;
             box-shadow: grey 1px 0 8px;
             margin-bottom: 10px;
         }
@@ -353,7 +365,12 @@ footer {
 }
 
 /***** REDACTOR'S PAGE *****/
-.redacAdmin {
+#redacAdmin {
+    #dashboard {
+        background-color: #d6d6d6;
+        height: 100vh;
+    }
+
     i {
         margin-right: 10px;
         color: black;
@@ -363,44 +380,41 @@ footer {
         color: black;
     }
 
-    #dashboard {
-        background-color: #d6d6d6;
-        
-        padding: 10px 40px;
-    }
-
     h2 {
         margin: 20px 0;
         font-size: 30px;
     }
 
-    .card-group {
+    .bloc-articles {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;;
+        justify-content: space-evenly;
 
-        .card {
-            flex: 0 1 calc(33.33% - 20px); /* 33.33% - marges pour obtenir trois cartes par ligne */
+        .bloc-article {
             margin: 10px;
             box-shadow: black 1px 0 5px;
+            width: 340px;
+            height: 450px;
+            padding: 20px;
+            background-color: white;
         }
 
-        .card-body {
-            width: 100%;
+        .body-article {
             display: flex;
             flex-direction: column;
+            width: 300px;
         }
 
-        .card-body img {
-            width: 300px;
+        img {
+            margin-bottom: 20px;
             height: 220px;
-            margin-bottom: 5px;
+            width: 300px;
         }
 
         .actions {
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 20px;
         }
     }
 }

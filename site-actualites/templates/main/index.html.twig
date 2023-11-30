@@ -15,7 +15,7 @@
     <div class="article-une">
     {% if selectedArticle is not null %}
         <div class="picture-une">
-            <img src="{{ asset('uploads/images/' ~ selectedArticle.picture) }}">
+            <img src="{{ asset('uploads/images/' ~ selectedArticle.picture) }}" alt="photo de l'article">
         </div>
         <div class="description-une">
             <small>{{ selectedArticle.category.nameCategory }}</small>
@@ -39,7 +39,7 @@
         {% if article.category == category %}
         <div class="article">
             <div class="picture">
-                <img src="{{ asset('uploads/images/' ~ article.picture) }}">
+                <img src="{{ asset('uploads/images/' ~ article.picture) }}" alt="photo de l'article">
             </div>
             <div class="description">
                 <small>{{ article.category.nameCategory }}</small>

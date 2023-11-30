@@ -1,29 +1,46 @@
+// TRIGGERS THE APPEARANCE OF ARTICLES WHEN SCROLLING DOWN
 document.addEventListener('DOMContentLoaded', function () {
-    // Options pour l'Intersection Observer
+    // Intersection Observer's options
     const options = {
-        root: null, // Utilise la fenêtre comme la zone d'observation
-        rootMargin: '0px', // Pas de marges supplémentaires
-        threshold: 0.2 // Déclenche l'observation lorsque 50% de l'élément est visible
+        root: null, // Using window as observation zone
+        rootMargin: '0px', // No extra margins
+        threshold: 0.2 // Trigger observation when 50% of the element is visible
     };
 
-    // Fonction de callback pour l'Intersection Observer
+    // Callback fonction for the Intersection Observer
     const handleIntersection = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Ajoute une classe pour afficher l'élément
-                observer.unobserve(entry.target); // Arrête l'observation une fois l'élément affiché
+                entry.target.classList.add('visible'); // Add a class to display the element
+                observer.unobserve(entry.target); // Stop observing once the element is displayed
             }
         });
     };
 
-    // Création de l'Intersection Observer
+    // Creation of the Intersection Observer
     const observer = new IntersectionObserver(handleIntersection, options);
 
-    // Sélectionne tous les éléments avec la classe "article" à observer
+    // Select all elements with the class 'article' to observe
     const articles = document.querySelectorAll('.article');
 
-    // Ajoute chaque élément à l'Intersection Observer
+    // Add each element to the Intersection Observer
     articles.forEach(article => {
         observer.observe(article);
+    });
+});
+
+// FIXES THE BRAND WHEN SCROLLING DOWN
+document.addEventListener("DOMContentLoaded", function () {
+    var brand = document.querySelector(".initial-brand");
+    var initialTop = brand.offsetTop;
+
+    window.addEventListener("scroll", function () {
+        if (window.pageYOffset > initialTop) {
+            brand.style.position = "fixed";
+            brand.style.top = "0";
+        } else {
+            brand.style.position = "static";
+            brand.style.top = "auto";
+        }
     });
 });
