@@ -43,6 +43,13 @@
     }
 }
 
+@media (max-width: 767.98px) {
+    /*************** SIDEBARS  ***************/
+    .flex-md-column {
+        flex-direction: column !important;
+    }
+}
+
 @media all and (max-width:700px) {
 
     /*************** INDEX ***************/
@@ -140,7 +147,7 @@
         }
     }
 
-    /***** REDACTOR'S PAGE *****/
+    /*************** REDACTOR'S PAGE ***************/
     #redacAdmin {
         .bloc-article {
             width: 280px !important;
