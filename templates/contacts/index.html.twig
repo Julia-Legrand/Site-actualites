@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerAdmin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height: 100vh;">
+			{% include "_partials/_sidebar.html.twig" %}
+			<div class="col-md-10" id="dashboard">
+				<h2>Contacts</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Email</th>
+							<th>Message</th>
+							<th>Supprimer</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for contact in contacts %}
+							<tr>
+								<td>{{ contact.emailContact }}</td>
+								<td>{{ contact.messageContact }}</td>
+								<td>
+									{{ include('contacts/_delete_form.html.twig') }}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">Donnée vide</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+{% endblock %}

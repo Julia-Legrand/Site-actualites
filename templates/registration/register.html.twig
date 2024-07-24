@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de compte{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerLogin.html.twig" %}
+	<main class="loginForm">
+		<h2>M'enregistrer</h2>
+
+		{{ form_errors(registrationForm) }}
+
+		{{ form_start(registrationForm) }}
+
+		{{ form_row(registrationForm.firstName) }}
+		{{ form_row(registrationForm.lastName) }}
+		{{ form_row(registrationForm.email) }}
+		{{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+
+		<button type="submit" class="button">Valider</button>
+		{{ form_end(registrationForm) }}
+		<button class="button" type="submit" onclick="window.location.href='/login'">Retour</button>
+	</main>
+{% endblock %}

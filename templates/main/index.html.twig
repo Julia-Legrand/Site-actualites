@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+
+<!---HEADER-->
+{% include "_partials/_headerIndex.html.twig" %}
+
+<!--A LA UNE-->
+<section id="une-section">
+    <div class="title">
+        <h1>À la une</h1>
+    </div>
+    <div class="article-une">
+    {% if selectedArticle is not null %}
+        <div class="picture-une">
+            <img src="{{ asset('uploads/images/' ~ selectedArticle.picture) }}" alt="photo de l'article">
+        </div>
+        <div class="description-une">
+            <small>{{ selectedArticle.category.nameCategory }}</small>
+            <h2>{{ selectedArticle.title }}</h2>
+            <p>{{ selectedArticle.text }}</p>
+            <small>Par {{ selectedArticle.user.firstName ~ ' ' ~ selectedArticle.user.lastName }}</small>
+            <small>Le {{ selectedArticle.createdAt ? selectedArticle.createdAt|date('d-m-Y') : '' }}</small>
+        </div>
+    {% endif %}
+    </div>
+</section>
+
+<!--ARTICLES-->
+<section id="main-section">
+    {% for category in categories %}
+    <div class="title">
+        <h1>{{ category.nameCategory }}</h1>
+    </div>
+    <div class="articles">
+        {% for article in articles %}
+        {% if article.category == category %}
+        <div class="article">
+            <div class="picture">
+                <img src="{{ asset('uploads/images/' ~ article.picture) }}" alt="photo de l'article">
+            </div>
+            <div class="description">
+                <small>{{ article.category.nameCategory }}</small>
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.text }}</p>
+                <small>Par {{ article.user.firstName ~ ' ' ~ article.user.lastName }}</small>
+                <small>Le {{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</small>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
+
+<!--CONTACT-->
+<section id="contact-section">
+    <div class="title">
+        <h1>Contact</h1>
+    </div>
+    {{ include('contacts/_form.html.twig') }}
+</section>
+
+<!--FOOTER-->
+{% include "_partials/_footer.html.twig" %}
+
+{% endblock %}

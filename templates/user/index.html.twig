@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerAdmin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height: 100vh;">
+			{% include "_partials/_sidebar.html.twig" %}
+            <div class="col-md-10" id="dashboard">
+				<h2>Utilisateurs</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Prénom</th>
+							<th>Nom</th>
+							<th>Email</th>
+							<th>Rôle</th>
+							<th>Modifier</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>{{ user.firstName }}</td>
+								<td>{{ user.lastName }}</td>
+								<td>{{ user.email }}</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+								<td style="display:flex; justify-content:center; align-items:center;">
+									<a href="{{ path('app_user_edit', {'id': user.id}) }}" style="margin-right:5px;;"><i class="fa-solid fa-pen" style="margin:0;"></i></a>
+                                    {{ include('user/_delete_form.html.twig') }}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="7">Donnée vide</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+{% endblock %}

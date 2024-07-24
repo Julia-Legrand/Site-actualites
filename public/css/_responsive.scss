@@ -1,0 +1,206 @@
+@media all and (max-width:1570px) {
+
+    /*************** INDEX ***************/
+    #main-section {
+        .article {
+            width: 400px !important;
+        }
+
+        img {
+            width: 400px !important;
+            height: 280px !important;
+        }
+    }
+}
+
+@media all and (max-width:1407px) {
+
+    /***** REDACTOR'S PAGE *****/
+    #redacAdmin {
+        #dashboard {
+            height: auto !important;
+        }
+    }
+}
+
+@media all and (max-width:840px) {
+
+    /*************** INDEX ***************/
+    #contact-section {
+        .custom-form {
+            width: 600px !important;
+        }
+    }
+
+    footer {
+        .footerBloc {
+            margin: 30px !important;
+            
+            .list {
+                margin: 0 10px !important;
+            }
+        }
+    }
+
+    /***** LOGIN & REGISTER *****/
+    .loginForm {
+        .custom-form {
+            width: 500px !important;
+        }
+    }
+
+    /***** LEGAL PAGES *****/
+    .mainLegals {
+
+        h1 {
+            font-size: 40px !important;
+            padding: 10px !important;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .blocsLegals {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10px !important;
+    
+            .blocLeft,
+            .blocRight {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    /*************** SIDEBARS  ***************/
+    .flex-md-column {
+        flex-direction: column !important;
+    }
+}
+
+@media all and (max-width:700px) {
+
+    /*************** INDEX ***************/
+    #une-section {
+
+        .picture-une,
+        .description-une {
+            width: 100% !important;
+        }
+    }
+
+    #contact-section {
+        .custom-form {
+            width: 500px !important;
+        }
+    }
+}
+
+@media all and (max-width:620px) {
+
+    /*************** INDEX ***************/
+    footer {
+        .footerBloc {
+            margin: 20px !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .list {
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+@media all and (max-width:550px) {
+
+    /*************** INDEX ***************/
+    #une-section {
+        h2 {
+            font-size: 30px !important;
+        }
+
+        p {
+            font-size: 15px !important;
+        }
+
+        small {
+            font-size: 10px !important;
+        }
+    }
+
+    #contact-section {
+        .custom-form {
+            width: 400px !important;
+        }
+    }
+
+    footer {
+        .footerBloc {
+            margin: 20px 5px 20px 0 !important;
+        }
+    }
+
+    /***** LOGIN & REGISTER *****/
+    .loginForm {
+        .custom-form {
+            width: 290px !important;
+        }
+    }
+}
+
+@media all and (max-width:400px) {
+
+    /*************** INDEX ***************/
+    #main-section {
+        .article {
+            width: 280px !important;
+        }
+
+        img {
+            width: 280px !important;
+            height: 190px !important;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+
+    #contact-section {
+        .custom-form {
+            width: 250px !important;
+        }
+    }
+
+    footer {
+        .footerBloc {
+            ul, a, small {
+                font-size: 11px;
+            }
+        }
+    }
+
+    /*************** REDACTOR'S PAGE ***************/
+    #redacAdmin {
+        .bloc-article {
+            width: 280px !important;
+            height: 420px !important;
+        }
+
+        .body-article {
+            width: 280px !important;
+        }
+
+        img {
+            height: 180px !important;
+            width: 240px !important;
+        }
+    }
+}

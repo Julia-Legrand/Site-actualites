@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerLogin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height:100vh;">
+			{% include "_partials/_sidebarRedac.html.twig" %}
+			<div class="col-md-10" id="dashboard" style="padding:20px;">
+				{{ include('articles/_form.html.twig') }}
+			</div>
+		</section>
+	</main>
+{% endblock %}

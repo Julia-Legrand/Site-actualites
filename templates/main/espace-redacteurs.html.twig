@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Rédacteurs{% endblock %}
+
+{% block body %}
+{% include "_partials/_headerLogin.html.twig" %}
+    <section class="row mr-3 ml-0" id="redacAdmin">
+        {% include "_partials/_sidebarRedac.html.twig" %}
+
+        <div class="col-md-10" id="dashboard" style="padding:10px 40px;">
+            <h2>Mes articles</h2>
+            <div class="bloc-articles">
+                {% for article in articles %}
+                <div class="bloc-article">
+                    <div class="body-article">
+                        <p><strong>{{ article.title }}</strong></p>
+                        <img src="{{ asset('uploads/images/' ~ article.picture) }}" alt="illustration article">
+                        <small>{{ article.category.nameCategory }}</small>
+                        <p style="margin-top:5px;">{{ article.user.firstName ~ ' ' ~ article.user.lastName }}</p>
+                        <small>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</small>
+                        <div class="actions">
+                            <a href="{{ path('app_articles_edit', {'id': article.id}) }}" style="margin-right:5px;">
+                                <i class="fa-solid fa-pen" style="margin:0;"></i></a>
+                            {{ include('articles/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier utilisateur{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerAdmin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height:100vh;">
+			{% include "_partials/_sidebar.html.twig" %}
+			<div class="col-md-10" id="dashboard" style="padding:20px;">
+				{{ include('user/_form.html.twig', {'button_label': 'Valider'}) }}
+            </div>
+		</section>
+	</main>
+{% endblock %}

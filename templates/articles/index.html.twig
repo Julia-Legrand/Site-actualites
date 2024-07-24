@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerAdmin.html.twig" %}
+	<main class="mainAdmin">
+		<section class="row mr-0 ml-0" style="height: 100vh;">
+			{% include "_partials/_sidebar.html.twig" %}
+			<div class="col-md-10" id="dashboard">
+				<h2>Articles</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Catégorie</th>
+							<th>Illustration</th>
+							<th>Titre</th>
+							<th>Texte</th>
+							<th>Auteur</th>
+							<th>Date</th>
+                            <th>Supprimer</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for article in articles %}
+							<tr>
+								<td>{{ article.category.nameCategory }}</td>
+								<td><img src="{{ asset('uploads/images/' ~ article.picture) }}" width="100"></td>
+								<td>{{ article.title }}</td>
+								<td>{{ article.text }}</td>
+								<td>{{ article.user.firstName ~ ' ' ~ article.user.lastName }}</td>
+								<td>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</td>
+								<td style="display:flex; justify-content:center; align-items:center;">
+                                    {{ include('articles/_delete_form.html.twig') }}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">Donnée vide</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+{% endblock %}

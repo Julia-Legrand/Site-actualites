@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+	{% include "_partials/_headerLogin.html.twig" %}
+	<main class="loginForm">
+		<form method="post">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+
+			<h2>Me connecter</h2>
+			<label for="inputEmail">Email</label>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+			
+            <label for="inputPassword">Mot de passe</label>
+			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<button class="button" type="submit">Valider</button>
+		</form>
+		<h2 style="margin-bottom:0; margin-top:40px;">Pas encore de compte ?</h2>
+		<button class="button" type="submit" onclick="window.location.href='/register'">M'enregistrer</button>
+	</main>
+{% endblock %}
